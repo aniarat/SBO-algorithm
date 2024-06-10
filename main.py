@@ -52,9 +52,9 @@ model = SBO.OriginalSBO(epoch=1000,
 model.solve(problem, seed=42)
 end_time = time.time()
 SBO_duration = end_time - start_time
-print(f"Czas optymalizacji dla najleprzych parametrów: {SBO_duration}s")
+print(f"Czas optymalizacji dla najlepszych parametrów: {SBO_duration}s")
 print(f"Czas optymalizacji binarnej reprezentacji algorytmów genetycznych: {gen_bin_stats['time']}s")
 print(f"Best solution dla binarnej reprezentacji algorytmów genetycznych: {gen_bin_stats['sol']}")
-print(f"Czas optymalizacji decymalnel reprezentacji algorytmów genetycznych: {gen_dec_stats['time']}s")
-print(f"Best solution dla decymalnel reprezentacji algorytmów genetycznych: {gen_dec_stats['sol']}")
+print(f"Czas optymalizacji rzeczywistej reprezentacji algorytmów genetycznych: {gen_dec_stats['time']}s")
+print(f"Best solution dla rzeczywistej reprezentacji algorytmów genetycznych: {gen_dec_stats['sol']}")
 
