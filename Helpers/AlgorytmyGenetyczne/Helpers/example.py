@@ -80,3 +80,4 @@ for epoch in range(epochs):
     print(f'Epoka {epoch+1}/{epochs}, Najlepszy koszt: {cost_function(elite)}, Najlepsze rozwiązanie: {elite}')
 # ostateczne najlepsze rozwiązanie
 print(f'\nOstatecznie najlepsze rozwiązanie: {elite}, Koszt: {cost_function(elite)}')
+

@@ -8,12 +8,19 @@ from mealpy import FloatVar, SBO
 
 def find_best_index(arr) -> int:
     idx = 0
-    best = inf
+    best = arr[0]
     for i in range(len(arr)):
-        if abs(arr[i]) < best:
+        if abs(sum(arr[i])) < sum(best):
             best = abs(arr[i])
             idx = i
     return idx
+    # idx = 0
+    # best = inf
+    # for i in range(len(arr)):
+    #     if abs(arr[i]) < best:
+    #         best = abs(arr[i])
+    #         idx = i
+    # return idx
 
 
 class MyGridSearch:

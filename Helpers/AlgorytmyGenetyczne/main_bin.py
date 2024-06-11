@@ -38,7 +38,6 @@ def get_mutation_type():
 
 def get_crossover_type():
     options = [
-        CrossingMethodsBin.TEST,
         CrossingMethodsBin.BUILD_IN_SINGLE_POINT,
         CrossingMethodsBin.BUILD_IN_DOUBLE_POINT,
         CrossingMethodsBin.BUILD_IN_UNIFORM,

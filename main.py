@@ -14,7 +14,7 @@ import pandas as pd
 gen_bin_stats = get_time_for_bin()
 gen_dec_stats = get_time_for_dec()
 
-num_genes = 1  # Liczba wymiarów
+num_genes = 4  # Liczba wymiarów
 func_enum = FunctionsOptions.RASTRIGIN  # Tutaj wybieramy funkcje do optymalizacji
 func_min_max = MinMax.MIN  # Tutaj wybieramy czy liczymy maximum czy minimim
 
@@ -32,7 +32,7 @@ problem = {
     "log_to": None,
 }
 
-param_grid = {'pop_size': [1000],
+param_grid = {'pop_size': [100],
               'alpha': [0.7, 0.75, 0.8, 0.85, 0.9, 0.95],  # 'alpha' is a float and value should
               # be in range: [0.5, 3.0].
               'p_m': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
@@ -48,7 +48,7 @@ print(f"Best accuracy: {model.g_best.target.fitness}")
 print(f"Best parameters: {model.problem.decode_solution(model.g_best.solution)}")
 
 start_time = time.time()
-model = SBO.OriginalSBO(epoch=200,
+model = SBO.OriginalSBO(epoch=100,
                         pop_size=search.best_params['pop_size'],
                         alpha=search.best_params['alpha'],
                         p_m=search.best_params['p_m'],
