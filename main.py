@@ -14,7 +14,7 @@ import pandas as pd
 gen_bin_stats = get_time_for_bin()
 gen_dec_stats = get_time_for_dec()
 
-num_genes = 4  # Liczba wymiarów
+num_genes = 2  # Liczba wymiarów
 func_enum = FunctionsOptions.RASTRIGIN  # Tutaj wybieramy funkcje do optymalizacji
 func_min_max = MinMax.MIN  # Tutaj wybieramy czy liczymy maximum czy minimim
 
