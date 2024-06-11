@@ -7,6 +7,9 @@ from Consts.enums import FunctionsOptions, MinMax
 from Helpers.AlgorytmyGenetyczne.main_bin import get_time_for_bin
 from Helpers.AlgorytmyGenetyczne.main_dec import get_time_for_dec
 from Helpers.GridSearch import MyGridSearch
+import pandas as pd
+
+#pop_size = int(input("Podaj liczbę osobników w populacji (pop size): "))
 
 gen_bin_stats = get_time_for_bin()
 gen_dec_stats = get_time_for_dec()
@@ -29,7 +32,7 @@ problem = {
     "log_to": None,
 }
 
-param_grid = {'pop_size': [100],
+param_grid = {'pop_size': [1000],
               'alpha': [0.7, 0.75, 0.8, 0.85, 0.9, 0.95],  # 'alpha' is a float and value should
               # be in range: [0.5, 3.0].
               'p_m': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
@@ -37,6 +40,7 @@ param_grid = {'pop_size': [100],
 search = MyGridSearch(problem, param_grid)
 model = search.fit()
 
+print("\n---Satin Bowerbird Optimizer---\n")
 print(f"Best Params: {search.best_params}")
 print(f"Best agent: {model.g_best}")
 print(f"Best solution: {model.g_best.solution}")
@@ -44,17 +48,47 @@ print(f"Best accuracy: {model.g_best.target.fitness}")
 print(f"Best parameters: {model.problem.decode_solution(model.g_best.solution)}")
 
 start_time = time.time()
-model = SBO.OriginalSBO(epoch=1000,
+model = SBO.OriginalSBO(epoch=200,
                         pop_size=search.best_params['pop_size'],
                         alpha=search.best_params['alpha'],
                         p_m=search.best_params['p_m'],
                         psw=search.best_params['psw'])
+
 model.solve(problem, seed=42)
 end_time = time.time()
 SBO_duration = end_time - start_time
+
 print(f"Czas optymalizacji dla najlepszych parametrów: {SBO_duration}s")
+print("\n---Binarna reprezentacja---\n")
 print(f"Czas optymalizacji binarnej reprezentacji algorytmów genetycznych: {gen_bin_stats['time']}s")
 print(f"Best solution dla binarnej reprezentacji algorytmów genetycznych: {gen_bin_stats['sol']}")
+print("\n---Rzeczywista reprezentacja---\n")
 print(f"Czas optymalizacji rzeczywistej reprezentacji algorytmów genetycznych: {gen_dec_stats['time']}s")
 print(f"Best solution dla rzeczywistej reprezentacji algorytmów genetycznych: {gen_dec_stats['sol']}")
 
+# print("\n---Tabela wyników---\n")
+# data = {
+#     "Algorytm": [
+#         "Satin Bowerbird Optimizer (SBO)",
+#         "Binarna reprezentacja",
+#         "Rzeczywista reprezentacja"
+#     ],
+#     "Czas optymalizacji (s)": [
+#         SBO_duration,
+#         gen_bin_stats['time'],
+#         gen_dec_stats['time']
+#     ],
+#     "Najlepsze rozwiązanie": [
+#         model.problem.decode_solution(model.g_best.solution),
+#         gen_bin_stats['sol'],
+#         gen_dec_stats['sol']
+#     ],
+#     "Dokładność (Fitness)": [
+#         model.g_best.target.fitness,
+#         None,
+#         None
+#     ]
+# }
+
+# df = pd.DataFrame(data)
+# print(df)

@@ -14,7 +14,7 @@ from Helpers.AlgorytmyGenetyczne.Helpers.mutationMethods import GaussMutation
 
 
 ############ RZECZYWISTA ############
-
+print("\n---Reprezentacja rzeczywista---\n")
 #Funkcje do pobierania wartości od użytkownika
 def choose_option(prompt, options, default=0):
     print(prompt)

@@ -16,6 +16,7 @@ from Helpers.AlgorytmyGenetyczne.Helpers.decimalBinaryMath import get_actual_val
 
 ############ BINARNA ############
 
+print("\n---Reprezentacja binarna---\n")
 #Funkcje do pobierania wartości od użytkownika
 def choose_option(prompt, options):
     print(prompt)
@@ -143,8 +144,6 @@ decode_end = func.suggested_bounds()[1][0]  ##zakres końcowy w szukanej funkcji
 
 # crossover_type = "uniform"  #(single_point)(two_points)(uniform)
 match (crossover_type):  #przypisanie własnych funkcji crossover
-    case CrossingMethodsBin.TEST:
-        crossover_type = TestCrossover
     case CrossingMethodsBin.BUILD_IN_SINGLE_POINT:
         crossover_type = CrossingMethodsBin.BUILD_IN_SINGLE_POINT.value
         crossover_name = CrossingMethodsBin.BUILD_IN_SINGLE_POINT.value

@@ -1,6 +1,7 @@
 import copy
 import os
 from cmath import inf
+import numpy as np
 
 from mealpy import FloatVar, SBO
 
@@ -44,7 +45,8 @@ class MyGridSearch:
                         self.models.append(copy.deepcopy(model))
                         scores.append(model.g_best.solution)
                         params_list.append({'pop_size': pop_size, 'alpha': alpha, 'p_m': p_m, 'psw': psw})
-                        os.system('clear')
+                        #os.system('clear') #mac
+                        os.system('cls') #windows
                         if idx % 2 == 0:
                             print('======== \\MyGridSearch/ ========')
                         else:

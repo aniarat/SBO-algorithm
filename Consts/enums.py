@@ -2,8 +2,8 @@ from enum import Enum
 
 
 class CrossingMethodsBin(Enum):
-    NONE = -1
-    TEST = -2
+    # NONE = -1
+    # TEST = -2
     SINGLE_POINT = 0
     DOUBLE_POINT = 1
     TRIPLE_POINT = 2
@@ -35,8 +35,8 @@ class CrossingMethodsBin(Enum):
 
 
 class CrossingMethodsDec(Enum):
-    NONE = -1
-    TEST = -2
+    # NONE = -1
+    # TEST = -2
     SINGLE_POINT_ARITHMETIC = 0
     SINGLE_POINT_ARITHMETIC_STRING = 'Krzyżowanie 1 arytmetyczne'
     ARITHMETIC = 1
@@ -65,4 +65,4 @@ class MinMax(Enum):
 
 class FunctionsOptions(Enum):
     RASTRIGIN = 0
-    SCHWEFEK = 1
+    SCHWEFEL = 1
