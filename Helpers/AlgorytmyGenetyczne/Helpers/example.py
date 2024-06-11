@@ -42,7 +42,7 @@ for epoch in range(epochs):
         lamda = alpha/(1 + probabilities[idx])
         print(lamda)
 
-        # aktualizacja pozycji altanki
+        # aktualizacja altanki
         new_pos = population[idx] + lamda * (((population[selected_idx] + elite) / 2) - population[idx])
         print(new_pos)
 
@@ -50,10 +50,10 @@ for epoch in range(epochs):
         if np.random.rand() < p_m:
             new_pos += np.random.normal(0, psw * (ub - lb))
 
-        # sprawdzenie czy nowa pozycja jest w przedziale
+        # sprawdzenie czy nowe rozwiązanie jest w przedziale
         new_pos = np.clip(new_pos, lb, ub)
 
-        # obliczenie funkcji kosztu po aktualizacji pozycji
+        # obliczenie funkcji kosztu po aktualizacji rozwiązania
         new_cost = cost_function(new_pos)
 
         new_population.append(new_pos)
@@ -69,7 +69,7 @@ for epoch in range(epochs):
         elite = population[new_elite_idx]
 
     # nowe najlepsze rozwiązanie w epoce
-    print(f'Epoka {epoch+1}/{epochs}, Najlepszy koszt: {cost_function(elite)}, Najlepsza pozycja: {elite}')
+    print(f'Epoka {epoch+1}/{epochs}, Najlepszy koszt: {cost_function(elite)}, Najlepsze rozwiązanie: {elite}')
 
 # ostateczne najlepsze rozwiązanie
-print(f'Ostatecznie najlepsza pozycja: {elite}, Koszt: {cost_function(elite)}')
+print(f'Ostatecznie najlepsze rozwiązanie: {elite}, Koszt: {cost_function(elite)}')
